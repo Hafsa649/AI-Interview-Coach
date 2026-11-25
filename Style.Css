@@ -1,0 +1,337 @@
+/* ============================================================
+   AI INTERVIEW COACH - FYP PROJECT
+   File: style.css
+   Description: Complete Professional Styling
+   Features: Gradient, Dark Mode, Animation, Responsive Design
+   ============================================================ */
+
+/* ---------- 1. GLOBAL RESET ---------- */
+* {
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* ---------- 2. CSS VARIABLES - Colors ---------- */
+:root {
+  --primary: #6c5ce7;
+  --primary-dark: #5a4bd1;
+  --primary-light: #f0eeff;
+  --green: #00b894;
+  --green-dark: #00a383;
+  --red: #d63031;
+  --gray: #636e72;
+  --text-dark: #222;
+  --text-light: #666;
+  --border: #ddd;
+  --card-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  --radius: 20px;
+  --radius-small: 12px;
+}
+
+/* ---------- 3. BODY - MAIN BACKGROUND ---------- */
+body {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+  color: var(--text-dark);
+  transition: background 0.4s ease, color 0.3s ease;
+  line-height: 1.6;
+}
+
+/* ---------- 4. DARK MODE - POORA THEME CHANGE ---------- */
+body.dark {
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  color: #ffffff;
+}
+body.dark .card {
+  background: #1e1e3a;
+  color: white;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  border: 1px solid #333366;
+}
+body.dark input,
+body.dark select,
+body.dark textarea {
+  background: #2a2a4a;
+  color: white;
+  border-color: #444488;
+}
+body.dark input::placeholder,
+body.dark textarea::placeholder {
+  color: #aaa;
+}
+body.dark .card p {
+  color: #cccccc;
+}
+body.dark .history-item {
+  background: #2a2a4a !important;
+  color: white;
+}
+body.dark #progress {
+  background: #2a2a4a;
+  color: #a29bfe;
+}
+body.dark .small-text {
+  color: #999 !important;
+}
+
+/* ---------- 5. CONTAINER - CENTER ALIGNMENT ---------- */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 15px;
+  width: 100%;
+}
+
+/* ---------- 6. CARD - WHITE BOX ---------- */
+.card {
+  background: #ffffff;
+  padding: 30px 25px;
+  border-radius: var(--radius);
+  width: 100%;
+  max-width: 420px;
+  box-shadow: var(--card-shadow);
+  text-align: center;
+  animation: slideUp 0.5s ease forwards;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Card ke upar wali purple line */
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, #6c5ce7, #00b894, #fdcb6e);
+}
+
+/* ---------- 7. ANIMATION ---------- */
+@keyframes slideUp {
+  from { transform: translateY(25px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+/* ---------- 8. HEADINGS & TEXT ---------- */
+.logo {
+  font-size: 48px;
+  margin-bottom: 5px;
+  animation: bounce 2s infinite;
+}
+.card h1 {
+  font-size: 26px;
+  margin-bottom: 8px;
+  color: var(--primary);
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+.card h2 {
+  font-size: 22px;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+.card h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+.card p {
+  font-size: 14px;
+  color: var(--text-light);
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+.subtitle {
+  font-size: 13px !important;
+  color: #888 !important;
+  margin-bottom: 18px !important;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+.small-text {
+  font-size: 12px !important;
+  color: gray !important;
+  margin-top: 12px !important;
+}
+
+/* ---------- 9. INPUTS, SELECT, TEXTAREA ---------- */
+input, select, textarea {
+  width: 100%;
+  padding: 13px 14px;
+  margin: 8px 0;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-small);
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  background: #fff;
+  color: #222;
+  resize: none;
+}
+input:focus, select:focus, textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.15);
+  background: #fefeff;
+}
+textarea {
+  min-height: 110px;
+  line-height: 1.5;
+}
+select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg fill='%23666' height='20' viewBox='0 0 24 24' width='20'><path d='M7 10l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+}
+
+/* ---------- 10. BUTTONS - ALL TYPES ---------- */
+button {
+  width: 100%;
+  padding: 13px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius-small);
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+button:hover {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 5px 15px rgba(108, 92, 231, 0.3);
+}
+button:active {
+  transform: scale(0.98);
+  box-shadow: none;
+}
+/* Green Button - Voice / History */
+.btn-green {
+  background: var(--green) !important;
+}
+.btn-green:hover {
+  background: var(--green-dark) !important;
+  box-shadow: 0 5px 15px rgba(0, 184, 148, 0.3) !important;
+}
+/* Red Button - Clear */
+.btn-red {
+  background: var(--red) !important;
+}
+/* Gray Button - Back */
+.btn-gray {
+  background: var(--gray) !important;
+}
+
+/* ---------- 11. THEME BUTTON - TOP RIGHT ---------- */
+.theme-btn {
+  position: fixed;
+  top: 12px;
+  right: 12px;
+  width: auto;
+  padding: 9px 16px;
+  z-index: 100;
+  background: #2d3436;
+  font-size: 14px;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+.theme-btn:hover {
+  background: #000;
+}
+
+/* ---------- 12. PROGRESS BADGE ---------- */
+#progress {
+  font-weight: bold;
+  color: var(--primary);
+  font-size: 13px;
+  background: var(--primary-light);
+  padding: 6px 14px;
+  border-radius: 20px;
+  display: inline-block;
+  margin-bottom: 12px;
+}
+
+/* ---------- 13. QUESTION TEXT ---------- */
+#questionText {
+  font-size: 18px;
+  margin: 15px 0;
+  line-height: 1.5;
+  font-weight: 600;
+  color: #2d3436;
+}
+body.dark #questionText {
+  color: #fff;
+}
+
+/* ---------- 14. HISTORY BOX ---------- */
+.history-box {
+  text-align: left;
+  margin-top: 15px;
+  border-top: 1px dashed #ddd;
+  padding-top: 15px;
+  animation: fadeIn 0.3s ease;
+}
+.history-box h3 {
+  text-align: center;
+  font-size: 16px;
+}
+.history-item {
+  background: #f8f9fa;
+  padding: 11px 12px;
+  border-radius: 10px;
+  margin: 8px 0;
+  border-left: 4px solid var(--primary);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: transform 0.2s;
+}
+.history-item:hover {
+  transform: translateX(3px);
+}
+
+/* ---------- 15. RESULT SCREEN ---------- */
+.result-score {
+  font-size: 50px;
+  color: var(--primary);
+  font-weight: 800;
+  margin: 10px 0;
+}
+
+/* ---------- 16. RESPONSIVE - MOBILE ---------- */
+@media (max-width: 480px) {
+  .card { padding: 22px 18px; border-radius: 16px; }
+  .card h1 { font-size: 22px; }
+  .logo { font-size: 38px; }
+  button { font-size: 15px; padding: 12px; }
+  .theme-btn { top: 10px; right: 10px; padding: 8px 12px; font-size: 13px; }
+  .container { padding: 10px; }
+}
+
+/* ---------- 17. RESPONSIVE - TABLET ---------- */
+@media (min-width: 481px) and (max-width: 768px) {
+  .card { max-width: 480px; padding: 28px 24px; }
+}
+
+/* ---------- 18. SCROLLBAR ---------- */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #f1f1f1; }
+::-webkit-scrollbar-thumb { background: #6c5ce7; border-radius: 10px; }

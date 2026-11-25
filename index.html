@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Interview Coach - FYP</title>
+<link rel="stylesheet" href="style.css">
+<link rel="manifest" href="manifest.json">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+
+<button id="themeBtn" class="theme-btn">🌙 Dark</button>
+
+<!-- LOGIN SCREEN -->
+<div id="loginScreen" class="container">
+  <div class="card">
+    <div class="logo">🎓</div>
+    <h1>AI Interview Coach</h1>
+    <p class="subtitle">AI-Based Mock Interview System</p>
+    <input type="email" id="email" placeholder="Email">
+    <div class="password-box">
+      <input type="password" id="password" placeholder="Password">
+      <span id="eyeIcon" onclick="togglePassword()">👁️</span>
+    </div>
+    <button onclick="login()">Login</button>
+    <p class="small-text">FYP Project - One Time Login</p>
+  </div>
+</div>
+
+<!-- HOME SCREEN -->
+<div id="homeScreen" class="container" style="display:none;">
+  <div class="card">
+    <h2>Welcome! 👋</h2>
+    <p>Fill your details and start your interview</p>
+    <input type="text" id="userName" placeholder="Your Name">
+    <select id="skill">
+      <option>Computer Science</option>
+      <option>Software Engineering</option>
+      <option>Web Development</option>
+      <option>AI / Machine Learning</option>
+    </select>
+    <button onclick="startInterview()">Start Interview 🚀</button>
+    <button onclick="showHistory()" class="btn-green">📊 View My History</button>
+    <button onclick="logout()" class="btn-red">🚪 Logout</button>
+
+    <div id="historyBox" class="history-box" style="display:none;">
+      <h3>My Previous History</h3>
+      <div id="historyList"></div>
+      <button onclick="clearHistory()" class="btn-red">Clear History</button>
+      <button onclick="hideHistory()" class="btn-gray">Back</button>
+    </div>
+  </div>
+</div>
+
+<!-- INTERVIEW SCREEN -->
+<div id="interviewScreen" class="container" style="display:none;">
+  <div class="card">
+    <p id="progress">Question 1 of 4</p>
+    <h3 id="questionText">Question</h3>
+    <textarea id="answer" rows="4" placeholder="Write your answer here or speak..."></textarea>
+    <button onclick="startVoice()" class="btn-green">🎤 Answer by Voice</button>
+    <button onclick="nextQuestion()">Next ➡️</button>
+  </div>
+</div>
+
+<!-- RESULT SCREEN -->
+<div id="resultScreen" class="container" style="display:none;">
+  <div class="card">
+    <h2>🎉 Interview Complete!</h2>
+    <h1>Result</h1>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
